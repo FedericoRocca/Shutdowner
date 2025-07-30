@@ -28,28 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nudDias = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.nudHoras = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.nudSegundos = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.nudMinutos = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chbRestart = new System.Windows.Forms.CheckBox();
-            this.chbApagar = new System.Windows.Forms.CheckBox();
-            this.chbHibernar = new System.Windows.Forms.CheckBox();
             this.chbForzar = new System.Windows.Forms.CheckBox();
+            this.chbHibernar = new System.Windows.Forms.CheckBox();
+            this.chbApagar = new System.Windows.Forms.CheckBox();
+            this.chbRestart = new System.Windows.Forms.CheckBox();
             this.btnLanzar = new System.Windows.Forms.Button();
             this.gpbRestante = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.tmrApagado = new System.Windows.Forms.Timer(this.components);
+            this.txbRestante = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHoras)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSegundos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinutos)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.gpbRestante.SuspendLayout();
             this.SuspendLayout();
@@ -57,85 +60,100 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 21);
+            this.label1.Location = new System.Drawing.Point(38, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dias";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // numericUpDown1
+            // nudDias
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(67, 19);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown1.TabIndex = 1;
+            this.nudDias.Location = new System.Drawing.Point(72, 95);
+            this.nudDias.Name = "nudDias";
+            this.nudDias.Size = new System.Drawing.Size(79, 20);
+            this.nudDias.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 47);
+            this.label2.Location = new System.Drawing.Point(31, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Horas";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // numericUpDown2
+            // nudHoras
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(67, 45);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown2.TabIndex = 3;
+            this.nudHoras.Location = new System.Drawing.Point(72, 69);
+            this.nudHoras.Name = "nudHoras";
+            this.nudHoras.Size = new System.Drawing.Size(79, 20);
+            this.nudHoras.TabIndex = 3;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown4);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.numericUpDown3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.nudHoras);
+            this.groupBox1.Controls.Add(this.nudMinutos);
             this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.nudDias);
+            this.groupBox1.Controls.Add(this.nudSegundos);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(157, 128);
+            this.groupBox1.Size = new System.Drawing.Size(157, 123);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Temporizador";
             // 
-            // numericUpDown3
+            // nudSegundos
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(67, 71);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown3.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Minutos";
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(67, 97);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(79, 20);
-            this.numericUpDown4.TabIndex = 7;
+            this.nudSegundos.Location = new System.Drawing.Point(72, 17);
+            this.nudSegundos.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nudSegundos.Name = "nudSegundos";
+            this.nudSegundos.Size = new System.Drawing.Size(79, 20);
+            this.nudSegundos.TabIndex = 7;
+            this.nudSegundos.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 99);
+            this.label4.Location = new System.Drawing.Point(11, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(55, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Segundos";
+            // 
+            // nudMinutos
+            // 
+            this.nudMinutos.Location = new System.Drawing.Point(72, 43);
+            this.nudMinutos.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.nudMinutos.Name = "nudMinutos";
+            this.nudMinutos.Size = new System.Drawing.Size(79, 20);
+            this.nudMinutos.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(22, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Minutos";
             // 
             // groupBox2
             // 
@@ -145,43 +163,10 @@
             this.groupBox2.Controls.Add(this.chbRestart);
             this.groupBox2.Location = new System.Drawing.Point(177, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(80, 128);
+            this.groupBox2.Size = new System.Drawing.Size(80, 123);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
-            // 
-            // chbRestart
-            // 
-            this.chbRestart.AutoSize = true;
-            this.chbRestart.Location = new System.Drawing.Point(7, 43);
-            this.chbRestart.Name = "chbRestart";
-            this.chbRestart.Size = new System.Drawing.Size(67, 17);
-            this.chbRestart.TabIndex = 0;
-            this.chbRestart.Text = "Reiniciar";
-            this.chbRestart.UseVisualStyleBackColor = true;
-            this.chbRestart.CheckedChanged += new System.EventHandler(this.chbRestart_CheckedChanged);
-            // 
-            // chbApagar
-            // 
-            this.chbApagar.AutoSize = true;
-            this.chbApagar.Location = new System.Drawing.Point(7, 20);
-            this.chbApagar.Name = "chbApagar";
-            this.chbApagar.Size = new System.Drawing.Size(60, 17);
-            this.chbApagar.TabIndex = 1;
-            this.chbApagar.Text = "Apagar";
-            this.chbApagar.UseVisualStyleBackColor = true;
-            this.chbApagar.CheckedChanged += new System.EventHandler(this.chbApagar_CheckedChanged);
-            // 
-            // chbHibernar
-            // 
-            this.chbHibernar.AutoSize = true;
-            this.chbHibernar.Location = new System.Drawing.Point(7, 66);
-            this.chbHibernar.Name = "chbHibernar";
-            this.chbHibernar.Size = new System.Drawing.Size(66, 17);
-            this.chbHibernar.TabIndex = 2;
-            this.chbHibernar.Text = "Hibernar";
-            this.chbHibernar.UseVisualStyleBackColor = true;
-            this.chbHibernar.CheckedChanged += new System.EventHandler(this.chbHibernar_CheckedChanged);
             // 
             // chbForzar
             // 
@@ -195,9 +180,44 @@
             this.chbForzar.Text = "Forzar";
             this.chbForzar.UseVisualStyleBackColor = true;
             // 
+            // chbHibernar
+            // 
+            this.chbHibernar.AutoSize = true;
+            this.chbHibernar.Location = new System.Drawing.Point(7, 66);
+            this.chbHibernar.Name = "chbHibernar";
+            this.chbHibernar.Size = new System.Drawing.Size(66, 17);
+            this.chbHibernar.TabIndex = 2;
+            this.chbHibernar.Text = "Hibernar";
+            this.chbHibernar.UseVisualStyleBackColor = true;
+            this.chbHibernar.CheckedChanged += new System.EventHandler(this.chbHibernar_CheckedChanged);
+            // 
+            // chbApagar
+            // 
+            this.chbApagar.AutoSize = true;
+            this.chbApagar.Checked = true;
+            this.chbApagar.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbApagar.Location = new System.Drawing.Point(7, 20);
+            this.chbApagar.Name = "chbApagar";
+            this.chbApagar.Size = new System.Drawing.Size(60, 17);
+            this.chbApagar.TabIndex = 1;
+            this.chbApagar.Text = "Apagar";
+            this.chbApagar.UseVisualStyleBackColor = true;
+            this.chbApagar.CheckedChanged += new System.EventHandler(this.chbApagar_CheckedChanged);
+            // 
+            // chbRestart
+            // 
+            this.chbRestart.AutoSize = true;
+            this.chbRestart.Location = new System.Drawing.Point(7, 43);
+            this.chbRestart.Name = "chbRestart";
+            this.chbRestart.Size = new System.Drawing.Size(67, 17);
+            this.chbRestart.TabIndex = 0;
+            this.chbRestart.Text = "Reiniciar";
+            this.chbRestart.UseVisualStyleBackColor = true;
+            this.chbRestart.CheckedChanged += new System.EventHandler(this.chbRestart_CheckedChanged);
+            // 
             // btnLanzar
             // 
-            this.btnLanzar.Location = new System.Drawing.Point(13, 148);
+            this.btnLanzar.Location = new System.Drawing.Point(13, 142);
             this.btnLanzar.Name = "btnLanzar";
             this.btnLanzar.Size = new System.Drawing.Size(244, 23);
             this.btnLanzar.TabIndex = 6;
@@ -207,41 +227,56 @@
             // 
             // gpbRestante
             // 
-            this.gpbRestante.Controls.Add(this.textBox1);
-            this.gpbRestante.Location = new System.Drawing.Point(13, 178);
+            this.gpbRestante.Controls.Add(this.txbRestante);
+            this.gpbRestante.Controls.Add(this.btnCancelar);
+            this.gpbRestante.Location = new System.Drawing.Point(12, 171);
             this.gpbRestante.Name = "gpbRestante";
-            this.gpbRestante.Size = new System.Drawing.Size(244, 47);
+            this.gpbRestante.Size = new System.Drawing.Size(244, 85);
             this.gpbRestante.TabIndex = 7;
             this.gpbRestante.TabStop = false;
             this.gpbRestante.Text = "Tiempo restante";
             // 
-            // textBox1
+            // btnCancelar
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(7, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 0;
+            this.btnCancelar.Location = new System.Drawing.Point(7, 47);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(230, 23);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar apagado";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click_1);
+            // 
+            // tmrApagado
+            // 
+            this.tmrApagado.Interval = 1000;
+            this.tmrApagado.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txbRestante
+            // 
+            this.txbRestante.Enabled = false;
+            this.txbRestante.Location = new System.Drawing.Point(7, 20);
+            this.txbRestante.Name = "txbRestante";
+            this.txbRestante.ReadOnly = true;
+            this.txbRestante.Size = new System.Drawing.Size(230, 20);
+            this.txbRestante.TabIndex = 2;
             // 
             // Shutdowner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(267, 235);
+            this.ClientSize = new System.Drawing.Size(264, 261);
             this.Controls.Add(this.gpbRestante);
             this.Controls.Add(this.btnLanzar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Shutdowner";
             this.Text = "Shutdowner";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudHoras)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSegundos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMinutos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.gpbRestante.ResumeLayout(false);
@@ -253,13 +288,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nudDias;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown nudHoras;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown nudSegundos;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown nudMinutos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chbRestart;
@@ -268,7 +303,9 @@
         private System.Windows.Forms.CheckBox chbApagar;
         private System.Windows.Forms.Button btnLanzar;
         private System.Windows.Forms.GroupBox gpbRestante;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Timer tmrApagado;
+        private System.Windows.Forms.TextBox txbRestante;
     }
 }
 
