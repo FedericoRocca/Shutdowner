@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace Shutdowner
 {
@@ -54,7 +55,9 @@ namespace Shutdowner
                 flags += "/t " + shutTimer.ToString();
                 gpbRestante.Show();
                 this.Size = new Size(280, 300);
-                //Process.Start(command, flags);
+                //Debug del comando de apagado
+                //MessageBox.Show("shutdown " + flags);
+                Process.Start(command, flags);
                 flags = "";
 
                 tmrApagado.Start();
@@ -157,7 +160,7 @@ namespace Shutdowner
         {
             try
             {
-                nudSegundos.Value--;
+                if (nudSegundos.Value > 0) nudSegundos.Value--;
                 if (nudSegundos.Value <= 1)
                 {
                     if(nudMinutos.Value > 0) nudMinutos.Value--;
@@ -166,18 +169,30 @@ namespace Shutdowner
                         if (nudHoras.Value > 0) nudHoras.Value--;
                         if (nudHoras.Value <= 0)
                         {
-                            nudDias.Value--;
+                            if (nudDias.Value > 0) nudDias.Value--;
                         }
                     }
                 }
 
                 txbRestante.Text = String.Format(
                     "{0} dias, {1} horas, {2} minutos, {3} segundos",
-                    nudDias.Value, nudHoras.Value, nudHoras.Value, nudSegundos.Value);
-
+                    nudDias.Value, nudHoras.Value, nudMinutos.Value, nudSegundos.Value);
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        private void Shutdowner_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
