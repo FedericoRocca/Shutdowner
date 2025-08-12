@@ -40,10 +40,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nudSegundos = new System.Windows.Forms.NumericUpDown();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbHibernar = new System.Windows.Forms.RadioButton();
+            this.rbRestart = new System.Windows.Forms.RadioButton();
+            this.rbApagar = new System.Windows.Forms.RadioButton();
             this.chbForzar = new System.Windows.Forms.CheckBox();
-            this.chbHibernar = new System.Windows.Forms.CheckBox();
-            this.chbApagar = new System.Windows.Forms.CheckBox();
-            this.chbRestart = new System.Windows.Forms.CheckBox();
             this.btnLanzar = new System.Windows.Forms.Button();
             this.gpbRestante = new System.Windows.Forms.GroupBox();
             this.txbRestante = new System.Windows.Forms.TextBox();
@@ -66,7 +66,6 @@
             this.label1.Size = new System.Drawing.Size(28, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Dias";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // nudDias
             // 
@@ -83,7 +82,6 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Horas";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // nudHoras
             // 
@@ -163,16 +161,51 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbHibernar);
+            this.groupBox2.Controls.Add(this.rbRestart);
+            this.groupBox2.Controls.Add(this.rbApagar);
             this.groupBox2.Controls.Add(this.chbForzar);
-            this.groupBox2.Controls.Add(this.chbHibernar);
-            this.groupBox2.Controls.Add(this.chbApagar);
-            this.groupBox2.Controls.Add(this.chbRestart);
             this.groupBox2.Location = new System.Drawing.Point(177, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(80, 123);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
+            // 
+            // rbHibernar
+            // 
+            this.rbHibernar.AutoSize = true;
+            this.rbHibernar.Location = new System.Drawing.Point(7, 66);
+            this.rbHibernar.Name = "rbHibernar";
+            this.rbHibernar.Size = new System.Drawing.Size(65, 17);
+            this.rbHibernar.TabIndex = 6;
+            this.rbHibernar.TabStop = true;
+            this.rbHibernar.Text = "Hibernar";
+            this.rbHibernar.UseVisualStyleBackColor = true;
+            this.rbHibernar.CheckedChanged += new System.EventHandler(this.rbHibernar_CheckedChanged);
+            // 
+            // rbRestart
+            // 
+            this.rbRestart.AutoSize = true;
+            this.rbRestart.Location = new System.Drawing.Point(7, 43);
+            this.rbRestart.Name = "rbRestart";
+            this.rbRestart.Size = new System.Drawing.Size(66, 17);
+            this.rbRestart.TabIndex = 5;
+            this.rbRestart.TabStop = true;
+            this.rbRestart.Text = "Reiniciar";
+            this.rbRestart.UseVisualStyleBackColor = true;
+            // 
+            // rbApagar
+            // 
+            this.rbApagar.AutoSize = true;
+            this.rbApagar.Checked = true;
+            this.rbApagar.Location = new System.Drawing.Point(7, 19);
+            this.rbApagar.Name = "rbApagar";
+            this.rbApagar.Size = new System.Drawing.Size(59, 17);
+            this.rbApagar.TabIndex = 4;
+            this.rbApagar.TabStop = true;
+            this.rbApagar.Text = "Apagar";
+            this.rbApagar.UseVisualStyleBackColor = true;
             // 
             // chbForzar
             // 
@@ -185,41 +218,6 @@
             this.chbForzar.TabIndex = 3;
             this.chbForzar.Text = "Forzar";
             this.chbForzar.UseVisualStyleBackColor = true;
-            // 
-            // chbHibernar
-            // 
-            this.chbHibernar.AutoSize = true;
-            this.chbHibernar.Location = new System.Drawing.Point(7, 66);
-            this.chbHibernar.Name = "chbHibernar";
-            this.chbHibernar.Size = new System.Drawing.Size(66, 17);
-            this.chbHibernar.TabIndex = 2;
-            this.chbHibernar.Text = "Hibernar";
-            this.chbHibernar.UseVisualStyleBackColor = true;
-            this.chbHibernar.CheckedChanged += new System.EventHandler(this.chbHibernar_CheckedChanged);
-            // 
-            // chbApagar
-            // 
-            this.chbApagar.AutoSize = true;
-            this.chbApagar.Checked = true;
-            this.chbApagar.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbApagar.Location = new System.Drawing.Point(7, 20);
-            this.chbApagar.Name = "chbApagar";
-            this.chbApagar.Size = new System.Drawing.Size(60, 17);
-            this.chbApagar.TabIndex = 1;
-            this.chbApagar.Text = "Apagar";
-            this.chbApagar.UseVisualStyleBackColor = true;
-            this.chbApagar.CheckedChanged += new System.EventHandler(this.chbApagar_CheckedChanged);
-            // 
-            // chbRestart
-            // 
-            this.chbRestart.AutoSize = true;
-            this.chbRestart.Location = new System.Drawing.Point(7, 43);
-            this.chbRestart.Name = "chbRestart";
-            this.chbRestart.Size = new System.Drawing.Size(67, 17);
-            this.chbRestart.TabIndex = 0;
-            this.chbRestart.Text = "Reiniciar";
-            this.chbRestart.UseVisualStyleBackColor = true;
-            this.chbRestart.CheckedChanged += new System.EventHandler(this.chbRestart_CheckedChanged);
             // 
             // btnLanzar
             // 
@@ -306,15 +304,15 @@
         private System.Windows.Forms.NumericUpDown nudMinutos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox chbRestart;
         private System.Windows.Forms.CheckBox chbForzar;
-        private System.Windows.Forms.CheckBox chbHibernar;
-        private System.Windows.Forms.CheckBox chbApagar;
         private System.Windows.Forms.Button btnLanzar;
         private System.Windows.Forms.GroupBox gpbRestante;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Timer tmrApagado;
         private System.Windows.Forms.TextBox txbRestante;
+        private System.Windows.Forms.RadioButton rbHibernar;
+        private System.Windows.Forms.RadioButton rbRestart;
+        private System.Windows.Forms.RadioButton rbApagar;
     }
 }
 
